@@ -43,7 +43,7 @@ p {
 mark {
     background: none;
     font-weight: bold;
-    color: var(--accent);
+    color: #aa00ff;
 }
 
 ul {
