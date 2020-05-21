@@ -45,7 +45,7 @@
 .blurTitle, #preHeader div {
     text-shadow: 2px 2px rgba(0, 0, 0, 0.438);
     background-color: rgba(0, 0, 0, 0.212);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(10px);
 }
 .blurTitle h1, .blurTitle h2, .blurTitle h3 {
     color: white;
@@ -56,6 +56,13 @@
     margin: 9px 15px 5px 15px;
 	border-radius: 10px;
     transition-duration: 2s;
+}
+.blurTitle canvas {
+    margin-left: 15px; 
+    margin-top: 9px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    /* background-color: green; */
 }
 
 .border {
