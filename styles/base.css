@@ -1,0 +1,101 @@
+/*** CSS by Kate Keefe ***/
+
+/********** Table Properties **********/
+table {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid var(--accent);
+}
+
+th {
+	color: var(--accent);
+    font-weight: bold;
+}
+
+tr {
+    text-align: center;
+}
+
+td {
+    font-size: 16px;
+}
+
+/********** Base Components **********/
+h1, h2, h3, h4 {
+	margin: 5px 0;
+	color: var(--accent);
+	text-align: center;
+}
+
+p {
+	font-size: 16px;
+	line-height: 24px;
+	text-indent: 25px;
+}
+
+mark {
+    background: none;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+ul {
+	list-style: none;
+}
+ul li::before {
+	width: 20px;
+	display: inline-block;
+	content: "\2666";
+	font-size: 20px;
+	font-weight: bold;
+}
+ul li {
+	padding: 3px 25px;
+	line-height: 24px;
+}
+.sublist { 
+	margin-left: 25px;
+}
+
+hr {
+	margin: 15px 15px;
+	border-style: none;
+}
+
+button {
+	background: none;
+	height: 40px;
+	padding: 5px;
+	border-radius: 5px;
+	outline: none;
+	transition-duration: 0.7s;
+}
+
+.hoverBtn {
+    background: none;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    color: #ffffff;
+    border: 3px solid var(--accent);
+    font-size: 16px;
+	transition-duration: 0.7s;
+}
+.hoverBtn:hover {
+    background: var(--accent);
+}
+
+a {
+	text-decoration: none;
+	/* color: black; */
+	color: var(--accent);
+	font-weight: bold;
+}

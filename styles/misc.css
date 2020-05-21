@@ -1,0 +1,50 @@
+/*** CSS by Kate Keefe ***/
+
+/********** Extra Components **********/
+
+.shadow { /* Creates a shadow on a div or image */
+	box-shadow: 0 0 25px 2px #000000;
+}
+.caption {
+	width: 100%;
+	margin-top: 0;
+	text-align: center;
+	font-size: 14px;
+	font-style: italic;
+}
+
+.center { /* Centers a div */
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.outline { /* Adds an outline to a div */
+	padding: 5px 10px;
+	border: 1px solid var(--accent);
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/********** Transitions **********/
+.transition, #page, #page hr, #page h1, #page h2, #page h3, #page img, #page mark, th, td {
+    transition-duration: 2.0s;
+}
+
+/********** For Economics **********/
+.visible {
+	height: auto;
+	/* overflow-y: auto; */
+}
+.invisible {
+	height: 0;
+	overflow-y: hidden;
+}
+
+#citations p {
+	text-indent: -25px;
+	margin-left: 55px;
+	/* margin-top: 20px;
+	margin-bottom: 20px; */
+}

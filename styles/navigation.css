@@ -1,0 +1,72 @@
+/*** Kate Keefe ***/
+/*** CSS for Navigation.js ***/
+/* Horizontal Navigation Version */
+
+/********** Navigation Dropdown **********/
+#navBtn {
+	width: 40px;
+    height: 85px;
+    float: left;
+	position: absolute; 
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+#navBtn h2{
+	color: #ffffff;
+	margin-top: 25px;
+}
+#navBtn:hover #navigation {
+	/* edge doesn't calc(41px * 9) + 14 */
+    height: 375px;
+}
+
+#navigation {
+    width: 215px;
+	position: absolute;
+	top: 85px;
+	height: 0;
+	transition-duration: 0.5s;
+    overflow: hidden;
+    z-index: 100;
+}
+#navigation button {
+	/* Remove other button styles */
+	border: none;
+	border-radius: 0;
+	float: left;
+
+    /* New button styles */
+    width: 200px;
+	height: 41px;
+	background-color: var(--footer); /* change bg color */
+    border-bottom: 2px solid black; /* change border color */
+	transition-duration: 0.5s;
+
+	/* Color styles */
+	color: #ffffff;
+	font-weight: bold;
+}
+#navigation button:hover {
+    /* height: 55px; */
+    width: 100%;
+	color: var(--accent);
+}
+
+/********** Page Buttons **********/
+#pageBtnsDiv {
+    width: var(--minW);
+    overflow: hidden;
+}
+
+#pageBtnsDiv button {
+    margin: 5px 10px;
+    width: 100px;
+}
+
+#backBtn {
+    float: left;
+}
+#nextBtn {
+    float: right;
+}
