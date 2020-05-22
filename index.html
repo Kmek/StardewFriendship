@@ -36,13 +36,14 @@
 
 		<div id="pageW">
             <div id="page">
+                <!----------------- What is friendship ----------------->
                 <div class="blurTitle full">
                     <div class="border">
                         <h2>What is friendship in <mark>Stardew Valley</mark>?</h2>
                     </div>
                 </div>
                 <div class="box full">
-                    <p>Friendship in <mark>Stardew Valley</mark> is measured by <mark>points</mark>. </p>
+                    <p>Friendship in <mark>Stardew Valley</mark> is measured by <mark>points</mark>. The more points you have with villagers, the better your relationship with them is. Villagers with better relationships will send you gifts in the mail, talk friendlier to you, and even give you recipes.</p>
                 </div>
 
                 <div class="blurTitle full">
@@ -54,7 +55,7 @@
                     <img src="media/friendshipMenu.jpg">
                 </div>
                 <div class="box full">
-                    <p>Above is a screenshot of the friendship menu from the game. Instead of seeing points, the player sees hearts. Each heart represents <mark>250 points</mark>. Any remaining points will not partially fill a heart, so it is hard to tell in-game how many points a relationship with a villager has. </p>
+                    <p>Above is a screenshot of the friendship menu from the game. Instead of seeing points, the player sees hearts. Each heart represents <mark>250</mark> points. Any remaining points will not partially fill a heart, so it is hard to tell in-game how many points a relationship with a villager has. </p>
                 </div>
                 <div class="box full">
                     <p>It is also worth noting that number of maximum hearts vary depending on the villager.</p>
@@ -69,6 +70,7 @@
                     <p>Regardless of the number maximum hearts, the method of increasing friendships is the same for all villagers.</p>
                 </div>
 
+                <!----------------- What changes friendship? ----------------->
                 <div class="blurTitle full">
                     <div class="border">
                         <h2>What changes friendship levels?</h2>
@@ -87,7 +89,7 @@
                 <div class="box halfL">
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p>Talking to a villager (<mark>+20</mark> points or <mark>+10</mark> points if villager is in the middle of a special animation)</p>
+                        <p>Talking to a villager (<mark>+20</mark> points, or <mark>+10</mark> points if the villager is in the middle of a special animation. Only once per day)</p>
                     </div>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
@@ -118,6 +120,7 @@
                 </div>
                 <div class="clear"></div>
 
+                <!----------------- Decay ----------------->
                 <div class="blurTitle full">
                     <div class="border">
                         <h2>Decay</h2>
@@ -129,39 +132,82 @@
                 <div class="box full">
                     <table>
                         <tr>
-                            <th style="border-top-left-radius: 10px;">Relationship Type</th>
+                            <th>Relationship Type</th>
                             <th>Decay Rate</th>
-                            <th style="border-top-right-radius: 10px;">When Decay Stops</th>
-                        </tr>
-                        <tr>
+                            <th>When Decay Stops</th>
+                        </tr> <tr>
                             <td>Not romanceable</td>
                             <td><mark>-2</mark> points / day</td>
                             <td><mark>10</mark> hearts</td>
-                        </tr>
-                        <tr>
+                        </tr> <tr>
                             <td>Romanceable, pre-bouquet</td>
                             <td><mark>-2</mark> points / day</td>
                             <td><mark>8</mark> hearts</td>
-                        </tr>
-                        <tr>
+                        </tr> <tr>
                             <td>Romanceable, post-bouquet</td>
                             <td><mark>-10</mark> points / day</td>
                             <td><mark>10</mark> hearts</td>
-                        </tr>
-                        <tr>
-                            <td style="border-bottom-left-radius: 10px;">Romanceable, married</td>
+                        </tr> <tr>
+                            <td>Romanceable, married</td>
                             <td><mark>-20</mark> points / day</td>
-                            <td style="border-bottom-right-radius: 10px;">Never</td>
+                            <td>Never</td>
                         </tr>
                     </table>
                 </div>
 
+                <!----------------- Gift-Giving ----------------->
                 <div class="blurTitle full">
                     <div class="border">
                         <h2>Gift-Giving</h2>
                     </div>
                 </div>
-                <!-- TODO -->
+                <div class="box full">
+                    <p>You can give gifts to villagers to increase or decrease friendship, how much so is determined by the gift type and the quality of the gift. The quality of the gift only affects liked and loved gifts, while neutral, disliked, and hated gifts are just their gift worth. Gifts can be given to villagers once per day and up to two gifts per week. Additionally, if maximum gifts were given in one week, then the friendship will receive a bonus of <mark>+10</mark> points at the end of the week. Each villager has their own set of loved, liked, neutral, disliked, and hated gifts, which the wiki lists out for each.</p>
+                </div>
+                <div class="box halfR">
+                    <table>
+                        <tr>
+                            <th>Gift Type</th>
+                            <th>Points</th>
+                        </tr> <tr>
+                            <td>Loved</td>
+                            <td><mark>+80</mark></td>
+                        </tr> <tr>
+                            <td>Liked</td>
+                            <td><mark>+45</mark></td>
+                        </tr> <tr>
+                            <td>Neutral</td>
+                            <td><mark>+20</mark></td>
+                        </tr> <tr>
+                            <td>Disliked</td>
+                            <td><mark>-20</mark></td>
+                        </tr> <tr>
+                            <td>Hated</td>
+                            <td><mark>-40</mark></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="box halfL">
+                    <table>
+                        <tr>
+                            <th>Quality</th>
+                            <th>Multiplier</th>
+                        </tr> <tr>
+                            <td>Normal</td>
+                            <td><mark>x1</mark></td>
+                        </tr> <tr>
+                            <td>Silver</td>
+                            <td><mark>x1.1</mark></td>
+                        </tr> <tr>
+                            <td>Gold</td>
+                            <td><mark>x1.25</mark></td>
+                        </tr> <tr>
+                            <td>Iridium</td>
+                            <td><mark>x1.5</mark></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clear"></div>
 
                 <div class="blurTitle full">
                     <div class="border">
@@ -171,8 +217,9 @@
                 <div class="box full">
                     <p>There are two events that affect friendship levels: the <mark>Feast of the Winter Star</mark> and <mark>birthdays</mark>. A gift given on the <mark>Feast of the Winter Star</mark> has a multiplier of <mark>x5</mark>. A gift given on a villager's <mark>birthday</mark> has a multiplier of <mark>x8</mark>. These multipliers will enlarge the point value of the given gift, no matter if it is an increase or decrease in overall friendship.</p>
                 </div>
-                <!-- TODO: there are four events, forgot luau and flower dance -->
+                <!-- TODO: there are four events, forgot luau and flower dance and heart events and the first introductions quest -->
 
+                <!----------------- Models ----------------->
                 <div class="blurTitle full">
                     <div class="border">
                         <h2>Models</h2>

@@ -1,5 +1,5 @@
 # StardewFriendship
-A website for understanding the freindship mechanics in Stardew Valley
+A website for understanding the friendship mechanics in Stardew Valley
 
 ### Brainstorm:
 - Some measurement ideas:
