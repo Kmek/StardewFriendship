@@ -8,6 +8,7 @@
 :root {
     --footer: #585858; /* a specific grey */
     --accent: #ffda21; /* a dark blue */
+    --accent2: #aa00ff;
     --minW: 700px;
 }
 

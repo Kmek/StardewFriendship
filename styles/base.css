@@ -15,7 +15,7 @@ th, td {
 }
 
 th {
-	color: var(--accent);
+	color: var(--accent2);
     font-weight: bold;
 }
 
@@ -43,7 +43,7 @@ p {
 mark {
     background: none;
     font-weight: bold;
-    color: #aa00ff;
+    color: var(--accent2);
 }
 
 ul {
