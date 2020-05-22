@@ -6,17 +6,20 @@
 	<meta name="description" content="Good debt vs bad debt, credit cards website for economics class">
 	<link rel="icon" href="./media/stardrop.png">
 
+    <!-- Styles -->
     <link href="./styles/page.css" rel="stylesheet"/>
     <link href="./styles/sections.css" rel="stylesheet"/>
     <link href="./styles/base.css" rel="stylesheet"/>
     <link href="./styles/misc.css" rel="stylesheet"/>
     <link href="./styles/flip-card.css" rel="stylesheet"/>
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- Scripts -->
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/glossary.js"></script>
+
+    <!-- PrismJS -->
+    <link href="prism/prism.css" rel="stylesheet"/>
+    <script src="prism/prism.js"></script>
 </head>
-<!-- <body onhashchange="loadFileFromUrl()"> -->
 <body>
 	<div id="pageBackground">
         <div id="preHeader">
@@ -84,11 +87,11 @@
                 <div class="box halfL">
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p>Talking to a villager (<mark>+20</mark> or <mark>+10</mark> if villager is in the middle of a special animation)</p>
+                        <p>Talking to a villager (<mark>+20</mark> points or <mark>+10</mark> points if villager is in the middle of a special animation)</p>
                     </div>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p>Completing an item delivery quest (<mark>+150</mark>)</p>
+                        <p>Completing an item delivery quest (<mark>+150</mark> points)</p>
                     </div>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
@@ -106,11 +109,11 @@
                     </div>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p>Hitting the villager with a slingshot (<mark>-30</mark>)</p>
+                        <p>Hitting the villager with a slingshot (<mark>-30</mark> points)</p>
                     </div>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p>Rummaging through a trashcan with a villager nearby (<mark>-25</mark>)</p>
+                        <p>Rummaging through a trashcan with a villager nearby (<mark>-25</mark> points)</p>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -132,22 +135,22 @@
                         </tr>
                         <tr>
                             <td>Not romanceable</td>
-                            <td><mark>-2</mark> / day</td>
+                            <td><mark>-2</mark> points / day</td>
                             <td><mark>10</mark> hearts</td>
                         </tr>
                         <tr>
                             <td>Romanceable, pre-bouquet</td>
-                            <td><mark>-2</mark> / day</td>
+                            <td><mark>-2</mark> points / day</td>
                             <td><mark>8</mark> hearts</td>
                         </tr>
                         <tr>
                             <td>Romanceable, post-bouquet</td>
-                            <td><mark>-10</mark> / day</td>
+                            <td><mark>-10</mark> points / day</td>
                             <td><mark>10</mark> hearts</td>
                         </tr>
                         <tr>
                             <td style="border-bottom-left-radius: 10px;">Romanceable, married</td>
-                            <td><mark>-20</mark> / day</td>
+                            <td><mark>-20</mark> points / day</td>
                             <td style="border-bottom-right-radius: 10px;">Never</td>
                         </tr>
                     </table>
@@ -168,6 +171,7 @@
                 <div class="box full">
                     <p>There are two events that affect friendship levels: the <mark>Feast of the Winter Star</mark> and <mark>birthdays</mark>. A gift given on the <mark>Feast of the Winter Star</mark> has a multiplier of <mark>x5</mark>. A gift given on a villager's <mark>birthday</mark> has a multiplier of <mark>x8</mark>. These multipliers will enlarge the point value of the given gift, no matter if it is an increase or decrease in overall friendship.</p>
                 </div>
+                <!-- TODO: there are four events, forgot luau and flower dance -->
 
                 <div class="blurTitle full">
                     <div class="border">
@@ -186,6 +190,9 @@
                     -Have checkboxes to instantly change the canvas graph
                     -Explain the derivative 
                 -->
+
+                <!-- Example codeblock for later -->
+                <pre data-label="toggleTimer()"><code class="language-javascript match-braces rainbow-braces line-numbers">var asdgh = -5;</code></pre>
                 
             </div>
         </div>
@@ -196,8 +203,11 @@
         <a href="https://github.com/Kmek/StardewFriendship" target="_blank"><button id="githubBtn" class="hoverBtn">View on GitHub</button></a>
     </div>
 
+    <!-- Navigation Styles & Script -->
     <link rel="stylesheet" type="text/css" href="./styles/navigation.css">
     <!-- <script src="./scripts/navigation.js"></script> -->
+
+    <!-- Canvas Script -->
     <script src="./scripts/canvas.js"></script>
 </body>
 </html>
