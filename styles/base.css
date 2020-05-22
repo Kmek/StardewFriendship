@@ -2,10 +2,10 @@
 
 /********** Table Properties **********/
 table {
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 15px;
-    border-collapse: collapse;
+    width: calc(100% - 20px);
+    margin: 5px 10px;
+    border-collapse: separate;
+    border-spacing: 0;
     table-layout: fixed;
 }
 
