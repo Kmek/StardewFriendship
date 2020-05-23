@@ -225,6 +225,107 @@
                         <h2>Models</h2>
                     </div>
                 </div>
+                <!-- TODO: code and flow chart picture go here -->
+
+                <div class="blurTitle full">
+                    <div class="border">
+                        <h3>Graph Controls</h3>
+                    </div>
+                </div>
+                <div class="box full">
+                    <!-- Relationship Type -->
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p>Relationship type:  
+                            <select>
+                                <option>Not romanceable</option>
+                                <option>Romanceable, pre-bouquet</option>
+                                <option>Romanceable, post-bouquet</option>
+                                <option>Romanceable, married</option>
+                            </select> </p>
+                    </div>
+                    <!-- Talking -->
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p>Talk 
+                            <select id="talkSelect">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                            </select> 
+                        times per week</p>
+                    </div>
+                    <!-- Gifting -->
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p>Give 
+                            <select>
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                            </select> <select>
+                                <option>normal</option>
+                                <option>silver</option>
+                                <option>gold</option>
+                                <option>iridium</option>
+                            </select> quality <select>
+                                <option>loved</option>
+                                <option>liked</option>
+                                <option>neutral</option>
+                                <option>disliked</option>
+                                <option>hated</option>
+                            </select> 
+                        gifts each week</p>
+                    </div>
+                    <!-- Birthday Checkbox -->
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <input type="checkbox">
+                        <label>Give a 
+                            <select>
+                                <option>normal</option>
+                                <option>silver</option>
+                                <option>gold</option>
+                                <option>iridium</option>
+                            </select> quality <select>
+                                <option>loved</option>
+                                <option>liked</option>
+                                <option>neutral</option>
+                                <option>disliked</option>
+                                <option>hated</option>
+                            </select> 
+                        birthday gift</label>
+                    </div>
+                    <!-- Winter Star Checkbox -->
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <input type="checkbox">
+                        <label>Give a 
+                            <select>
+                                <option>normal</option>
+                                <option>silver</option>
+                                <option>gold</option>
+                                <option>iridium</option>
+                            </select> quality <select>
+                                <option>loved</option>
+                                <option>liked</option>
+                                <option>neutral</option>
+                                <option>disliked</option>
+                                <option>hated</option>
+                            </select> 
+                        Winter Star gift</label>
+                    </div>
+                    <button id="graphBtn">Graph</button>
+                </div>
+                <!-- TODO: Maybe a given equation for the graph, even if it's just a trend line -->
+                <!-- <div class="box full">
+                    <p>Equation: </p>
+                </div> -->
                 <div class="blurTitle">
                     <canvas id="myCanvas" width="670px" height="500px">Canvas for models</canvas>
                 </div>
