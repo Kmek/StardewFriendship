@@ -61,11 +61,11 @@
                     <p>It is also worth noting that number of maximum hearts vary depending on the villager.</p>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p>If the villager is not romanceable, then they have <mark>10</mark> hearts.</p>
+                        <p>If the villager is not romanceable, then they have <mark>10</mark> hearts (or <mark>2500</mark> points).</p>
                     </div>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p>If the villager is romanceable, then they start with <mark>8</mark> hearts. This expands to <mark>10</mark> and eventually to <mark>14</mark> hearts if the player chooses to romance that villager.</p>
+                        <p>If the villager is romanceable, then they start with <mark>8</mark> hearts (or <mark>2000</mark> points). This expands to <mark>10</mark> (or <mark>2500</mark> points) and eventually to <mark>14</mark> (or <mark>3500</mark> points) hearts if the player chooses to romance that villager.</p>
                     </div>
                     <p>Regardless of the number maximum hearts, the method of increasing friendships is the same for all villagers.</p>
                 </div>
@@ -138,15 +138,15 @@
                         </tr> <tr>
                             <td>Not romanceable</td>
                             <td><mark>-2</mark> points / day</td>
-                            <td><mark>10</mark> hearts</td>
+                            <td><mark>10</mark> hearts (or <mark>2500</mark> points)</td>
                         </tr> <tr>
                             <td>Romanceable, pre-bouquet</td>
                             <td><mark>-2</mark> points / day</td>
-                            <td><mark>8</mark> hearts</td>
+                            <td><mark>8</mark> hearts (or <mark>2000</mark> points)</td>
                         </tr> <tr>
                             <td>Romanceable, post-bouquet</td>
                             <td><mark>-10</mark> points / day</td>
-                            <td><mark>10</mark> hearts</td>
+                            <td><mark>10</mark> hearts (or <mark>2500</mark> points)</td>
                         </tr> <tr>
                             <td>Romanceable, married</td>
                             <td><mark>-20</mark> points / day</td>
@@ -227,6 +227,9 @@
                 </div>
                 <!-- TODO: code and flow chart picture go here -->
 
+                <!-- Example codeblock for later -->
+                <pre data-label="toggleTimer()"><code class="language-javascript match-braces rainbow-braces line-numbers">var asdgh = -5;</code></pre>
+
                 <div class="blurTitle full">
                     <div class="border">
                         <h3>Graph Controls</h3>
@@ -239,10 +242,11 @@
                         <p>Relationship type:  
                             <select>
                                 <option>Not romanceable</option>
-                                <option>Romanceable, pre-bouquet</option>
-                                <option>Romanceable, post-bouquet</option>
-                                <option>Romanceable, married</option>
+                                <option>Romanceable, no bouquet</option>
+                                <option>Romanceable, give bouquet</option>
+                                <option>Romanceable, marry</option>
                             </select> </p>
+                        <!-- TODO: romanceable should be a piecewise function, because decay changes only when you reach max hearts -->
                     </div>
                     <!-- Talking -->
                     <div class="timeline">
@@ -320,6 +324,7 @@
                             </select> 
                         Winter Star gift</label>
                     </div>
+                    <!-- TODO: add checkbox for plain background -->
                     <button id="graphBtn">Graph</button>
                 </div>
                 <!-- TODO: Maybe a given equation for the graph, even if it's just a trend line -->
@@ -339,8 +344,11 @@
                     -Explain the derivative 
                 -->
 
-                <!-- Example codeblock for later -->
-                <pre data-label="toggleTimer()"><code class="language-javascript match-braces rainbow-braces line-numbers">var asdgh = -5;</code></pre>
+                <!-- TODO: show a table with all the points, with an expand / collapse button -->
+                <div class="box full">
+                    <button>Show Points</button>
+                    <table></table>
+                </div>
                 
             </div>
         </div>
@@ -355,7 +363,8 @@
     <link rel="stylesheet" type="text/css" href="./styles/navigation.css">
     <!-- <script src="./scripts/navigation.js"></script> -->
 
-    <!-- Canvas Script -->
+    <!-- Canvas Scripts -->
     <script src="./scripts/canvas.js"></script>
+    <script src="./scripts/stardew.js"></script>
 </body>
 </html>

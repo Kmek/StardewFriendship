@@ -1,4 +1,4 @@
-// JavaScript for Economic Systems Website
+// JavaScript for Changing Pages
 
 // Constants
 // var page = document.getElementById("page")
@@ -17,25 +17,3 @@ function changeAccent(color) {
 function changeTitle(text) {
     document.getElementById("title").innerHTML = text
 }
-
-/******************** Page Loading Functions ********************/
-// function loadFile(name) {
-//     window.location.href = ("#" + name)
-// }
-
-// function getFileFromURL() {
-//     let url = document.URL
-//     if (!url.includes("#")) {
-//         url = "debitCredit.html"
-//     } else {
-//         url = url.slice(url.lastIndexOf("#") + 1)
-//     }
-//     return url
-// }
-
-// function loadFileFromUrl() {
-//     let file = getFileFromURL()
-//     $('#page').load(("docs/" + file + "#"), function() {
-//         window.scrollTo(0, ($('#header').offset().top + 1))
-//     })
-// }

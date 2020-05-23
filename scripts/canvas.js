@@ -113,6 +113,9 @@ function drawAxes() {
     for (let i = 0; i < maxWeeks; i++) { // Weeks dashes
         let level = weekSpacing * (i + 1) + origin[1]
         level = Math.round(level)
+        // TODO only draw week dashes when maxWeeks is beneath a certain number, add year dashes
+        // if i % 4 draw year
+        // else if weeks beneath certain number
         draw.line(level, origin[1] - 10, level, origin[1] + 10, 1)
         if (maxWeeks <= 12) { // Days dashes
             for (let d = 1; d < 7; d++) {
@@ -124,3 +127,5 @@ function drawAxes() {
     }
 }
 drawAxes()
+
+// TODO add axis labels (time (days) and points)
