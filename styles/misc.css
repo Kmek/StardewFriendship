@@ -50,3 +50,7 @@
 #graphBtn:hover {
     background-position: left bottom;
 }
+
+#calculator {
+    box-shadow: 0 12px 8px -5px rgba(0, 0, 0, 0.438);
+}

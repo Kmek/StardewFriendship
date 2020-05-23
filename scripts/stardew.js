@@ -179,6 +179,21 @@ function drawGraph(g) {
 }
 
 // For testing
-var test = new Graph(1, 5, 0, 0, false, 0, false, 0)
-test.calcPoints()
-drawGraph(test)
+// var test = new Graph(1, 5, 0, 0, false, 0, false, 0)
+// test.calcPoints()
+// drawGraph(test)
+
+/******************** Draw Equation on Desmos ********************/
+// Setup Desmos
+var elt = document.getElementById('calculator')
+var calculator = Desmos.GraphingCalculator(elt)
+calculator.updateSettings({ xAxisLabel: 'Time (Days)', yAxisLabel: 'Points' })
+calculator.setMathBounds({
+    left: 0,
+    right: 20,
+    bottom: 0,
+    top: 2500
+});
+
+// TODO: plug an equation into desmos, change bounds
+calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
