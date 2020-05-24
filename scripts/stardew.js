@@ -1,7 +1,7 @@
 // JavaScript for Stardew Friendship Website
 
 /******************** Calculate Gift Points ********************/
-function calcGift(type, quality) {
+function calcGift(quality, type) {
     let points = 0
     let qualityCheck = false
 
@@ -92,9 +92,9 @@ class Graph {
         
         // Birthday and Winter Star gifts act as y-intercepts
         if (this.birthdayBool)
-            curPoints += this.birthdayPoints
+            curPoints += (this.birthdayPoints * 8)
         if (this.winterBool)
-            curPoints += this.winterPoints
+            curPoints += (this.winterPoints * 5)
         
         this.points.push(curPoints)
 
@@ -107,14 +107,20 @@ class Graph {
                 curPoints += 20
             }
 
-
             // Gifting
-            // todo
+            if (((day % 7) + 1) <= this.giftNum) {
+                console.log("giving gift on day " + day)
+                curPoints += this.giftPoints
+            }
             // +10 points if two gifts are given (awarded at the end of the week)
+            if (this.giftNum == 2 && (day % 7) == 0 && day != 0) {
+                console.log("collecting double points on day " + day)
+                curPoints += 10
+            }
 
-
+            // If function doesn't have a positive trend, prevent infinity loop
             if (day == 14 && curPoints <= 0) {
-                // Empty points array, marks as ungraphable, and leave the loop
+                // Empty points array, marks as ungraphable, and leave loop
                 this.points = []
                 this.graphable = false
                 break
@@ -183,7 +189,7 @@ function drawGraph(g) {
 }
 
 // For testing
-var test = new Graph(1, 5, 0, 0, false, 0, false, 0)
+var test = new Graph(1, 7, 0, calcGift("normal", "liked"), false, calcGift("normal", "loved"), false, calcGift("normal", "liked"))
 test.calcPoints()
 drawGraph(test)
 
