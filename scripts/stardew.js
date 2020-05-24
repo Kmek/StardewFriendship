@@ -153,12 +153,6 @@ class Graph {
             return 2
         }
     }
-
-    getEquation() {
-        // Todo
-        // Something like 2sin(x) + 2x
-        // using radians of course
-    }
 }
 
 /******************** Draw Graph on Canvas ********************/
@@ -197,7 +191,8 @@ var elt = document.getElementById('calculator')
 var calculator = Desmos.GraphingCalculator(elt)
 calculator.updateSettings({ 
     xAxisLabel: 'Time (Days)', 
-    yAxisLabel: 'Points'
+    yAxisLabel: 'Points',
+    
 })
 calculator.setMathBounds({
     left: 0,
@@ -206,19 +201,30 @@ calculator.setMathBounds({
     top: 2500
 })
 
-// TODO: plug an equation into desmos, change bounds
-// Examples saved for later
-calculator.setExpression({ id: 'graph1', latex: 'y=2*\\sin(x)+2x' })
-calculator.setExpression({
-    id: 'points',
-    type: 'table',
-    columns: [
-    {
-        latex: 'x',
-        values: ['1', '2', '3', '4', '5']
-    },
-    {
-        latex: 'y',
-        values: ['1', '4', '9', '10', '12'],
-    }],
-})
+document.getElementById("sendToDesmosBtn").onclick = function() {
+    // Set new bounds
+    calculator.setMathBounds({
+        left: 0,
+        right: (maxWeeks * 8),
+        bottom: 0,
+        top: (maxHearts * 270)
+    })
+
+    // Set points
+    calculator.setExpression({
+        id: 'points',
+        type: 'table',
+        columns: [
+        {
+            latex: 'x',
+            values: ([...Array(mainGraph.points.length).keys()])
+        },
+        {
+            latex: 'y',
+            values: (mainGraph.points)
+        }]
+    })
+
+    // Set equation
+    calculator.setExpression({ id: 'graph1', latex: "p(x)=18*\\sin((x-2.5)*((2*\\pi)/7))+12.285x+15", color: Desmos.Colors.ORANGE })
+}
