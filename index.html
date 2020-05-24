@@ -31,7 +31,7 @@
 
         <div id="header">
             <div id="navBtn"></div>
-            <h1 id="title">Welcome</h1>
+            <h1 id="title">Stardew Friendship</h1>
         </div>
 
 		<div id="pageW">
@@ -352,11 +352,19 @@
                     </div>
                     
                     <button id="sendToDesmosBtn">Send Data To Desmos</button>
-
-                    <!-- Todo: Add a button at the bottom that funnels all the points into the desmos section, so points can be compared with equation(s) -->
                 </div>
 
                 <div id="calculator" style="width: 700px; height: 500px;"></div>
+
+                <!----------------- Chosen Situation ----------------->
+                <div class="blurTitle full">
+                    <div class="border">
+                        <h2>Chosen Situation</h2>
+                    </div>
+                </div>
+                <div class="box full">
+                    <p>I decided to pick a situation to model for this project after viewing several different graphs using the algorithm I created. I am modelling <mark>talking</mark> to a <mark>non-romanceable</mark> villager once a day for the first <mark>5</mark> days in each week. The goal is to get the villager up to <mark>10</mark> hearts (or <mark>2500</mark> points), so the friendship doesn't decay anymore. According to my calculations, this would take <mark>204</mark> in-game days, or <mark>1</mark> year and <mark>3.28</mark> seasons.</p>
+                </div>
 
                 <!----------------- Equation ----------------->
                 <div class="blurTitle full">
@@ -364,12 +372,44 @@
                         <h2>Equation</h2>
                     </div>
                 </div>
+                <div class="box full">
+                    <h2><mark>p(x) = 18 * sin((x - 2.5) * (2pi / 7)) + 12.285x + 15</mark></h2>
+                </div>
+                <div class="box full">
+                    <p>After lots of adjusting, I reached this equation because:</p>
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p><mark>sin(x)</mark></p>
+                        <p>Knew it needed "stairs"</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p><mark>* (2pi / 7)</mark></p>
+                        <p>Knew the period needed to be a week, so 7 days</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p><mark>+ 12.285x</mark></p>
+                        <p>Knew it needed some linear growth</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p><mark>(x - 2.5)</mark></p>
+                        <p>Knew it needed a horizontal shift</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p><mark>+ 15</mark></p>
+                        <p>Knew it needed a vertical shift</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p><mark>18 *</mark></p>
+                        <p>Knew <mark>sin(x)</mark> needed a multiplier <mark>a</mark> value</p>
+                    </div>
+                </div>
 
                 <!-- 
-                    -set the period of the sin part (2pi)/7 
-                    -knew it needed a linear part, eyeballed
-                    -knew it needed a horizontal shift, eyeballed
-                    -knew it needed a vertical shift, eyeballed
                     -knew sin(x) needed a multiplier "a", eyeballed
                 -->
                 

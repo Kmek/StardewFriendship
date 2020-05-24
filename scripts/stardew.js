@@ -201,6 +201,7 @@ calculator.setMathBounds({
     top: 2500
 })
 
+// Todo: check if is graphable before sending data to desmos
 document.getElementById("sendToDesmosBtn").onclick = function() {
     // Set new bounds
     calculator.setMathBounds({
