@@ -14,7 +14,6 @@
     <link href="./styles/flip-card.css" rel="stylesheet"/>
 
     <!-- Scripts -->
-    <script src="./scripts/script.js"></script>
     <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <!-- PrismJS -->
@@ -345,10 +344,24 @@
                     -Explain the derivative 
                 -->
 
-                <!-- TODO: show a table with all the points, with an expand / collapse button -->
                 <div class="box full">
-                    <button>Show Points</button>
-                    <table></table>
+                    <button id="showTableBtn">Show Points</button>
+                    <div id="pointsDiv">
+                        <table id="pointsTable">
+                            <tr>
+                                <th>Time (Days)</th>
+                                <th>Points</th>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>4</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <button id="sendToDesmosBtn">Send Points To Desmos</button>
+
+                    <!-- Todo: Add a button at the bottom that funnels all the points into the desmos section, so points can be compared with equation(s) -->
                 </div>
 
                 <div id="calculator" style="width: 700px; height: 500px;"></div>
@@ -367,6 +380,7 @@
     <!-- <script src="./scripts/navigation.js"></script> -->
 
     <!-- Canvas Scripts -->
+    <script src="./scripts/script.js"></script>
     <script src="./scripts/canvas.js"></script>
     <script src="./scripts/stardew.js"></script>
 </body>

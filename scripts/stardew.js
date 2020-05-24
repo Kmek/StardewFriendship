@@ -86,10 +86,8 @@ class Graph {
     }
 
     calcPoints() {
-        console.log("Calculating points...")
-
         this.setMaxHearts() // Points goal
-        let day = 1
+        let day = 0
         let curPoints = 0
         
         // Birthday and Winter Star gifts act as y-intercepts
@@ -117,7 +115,7 @@ class Graph {
 
             if (day == 14 && curPoints <= 0) {
                 // Empty points array, marks as ungraphable, and leave the loop
-                // this.points = []
+                this.points = []
                 this.graphable = false
                 break
             }
@@ -128,12 +126,9 @@ class Graph {
         } while(curPoints <= (250 * this.maxH))
 
         // Calc maxW from days, unless ungraphable
-        // TODO
         if (this.graphable) {
-            this.maxW = Math.ceil(day / 7)
+            this.maxW = Math.ceil((day + 1) / 7)
         }
-
-        console.log(this.points)
     }
 
     getGraphable() {
@@ -150,6 +145,12 @@ class Graph {
             return 2
         }
     }
+
+    getEquation() {
+        // Todo
+        // Something like 2sin(x) + 2x
+        // using radians of course
+    }
 }
 
 /******************** Draw Graph on Canvas ********************/
@@ -165,35 +166,55 @@ function drawGraph(g) {
     draw.erase()
     drawAxes()
 
+    emptyPointsTable()
+
     for (let i = 0; i < test.points.length; i++) {
         draw.circle(
             Math.round(origin[0] + ((weekSpacing / 7) * (i))),
             (origin[1] + (heartSpacing / 250) * g.points[i]),
             0.5, "#ffffff")
+        
+        // Also fill the points table
+        addPointsRow(i, g.points[i])
 
     }
 
     // todo: display max weeks (or days) below canvas, convert to years ( maybe with seasons?)
-
-    // todo: empty then fill table with points too
 }
 
 // For testing
-// var test = new Graph(1, 5, 0, 0, false, 0, false, 0)
-// test.calcPoints()
-// drawGraph(test)
+var test = new Graph(1, 5, 0, 0, false, 0, false, 0)
+test.calcPoints()
+drawGraph(test)
 
 /******************** Draw Equation on Desmos ********************/
 // Setup Desmos
 var elt = document.getElementById('calculator')
 var calculator = Desmos.GraphingCalculator(elt)
-calculator.updateSettings({ xAxisLabel: 'Time (Days)', yAxisLabel: 'Points' })
+calculator.updateSettings({ 
+    xAxisLabel: 'Time (Days)', 
+    yAxisLabel: 'Points'
+})
 calculator.setMathBounds({
     left: 0,
     right: 20,
     bottom: 0,
     top: 2500
-});
+})
 
 // TODO: plug an equation into desmos, change bounds
-calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
+// Examples saved for later
+calculator.setExpression({ id: 'graph1', latex: 'y=2*\\sin(x)+2x' })
+calculator.setExpression({
+    id: 'points',
+    type: 'table',
+    columns: [
+    {
+        latex: 'x',
+        values: ['1', '2', '3', '4', '5']
+    },
+    {
+        latex: 'y',
+        values: ['1', '4', '9', '10', '12'],
+    }],
+})
