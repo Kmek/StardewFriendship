@@ -17,6 +17,30 @@ function changeAccent(color) {
 function changeTitle(text) {
     document.getElementById("title").innerHTML = text
 }
+// TODO: make the title change based off of scroll height?
+
+/******************** Graph Controls ********************/
+var graphBtn = document.getElementById("graphBtn")
+
+graphBtn.onclick = function() {
+    // Get values from Graph Controls div
+    mainGraph = new Graph(
+        parseInt(document.getElementById("relationshipSelect").value), 
+        parseInt(document.getElementById("talkSelect").value), 
+        parseInt(document.getElementById("giftNumSelect").value), 
+        calcGift(
+            document.getElementById("weeklyGiftQualitySelect").value, document.getElementById("weeklyGiftTypeSelect").value), 
+        document.getElementById("birthdayCheckbox").checked, 
+        calcGift(
+            document.getElementById("birthdayQualitySelect").value, document.getElementById("birthdayTypeSelect").value),
+        document.getElementById("winterCheckbox").checked, 
+        calcGift(
+            document.getElementById("winterQualitySelect").value, document.getElementById("winterTypeSelect").value),
+    )
+    
+    mainGraph.calcPoints()
+    drawGraph(mainGraph)
+}
 
 /******************** Show Table Button ********************/
 var showTableBtn = document.getElementById("showTableBtn")

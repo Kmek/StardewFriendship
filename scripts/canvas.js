@@ -12,14 +12,15 @@ const draw = {
     circle: function(x, y, radius, color) {
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = color;
-        ctx.stroke();
+        // ctx.strokeStyle = color;
+        // ctx.stroke();
         ctx.fillStyle = color;
         ctx.fill();
     },
-    line: function(x1, y1, x2, y2, strokeWidth) {
+    line: function(x1, y1, x2, y2, strokeWidth, color) {
         let tempStroke = ctx.lineWidth
         ctx.lineWidth = strokeWidth
+        ctx.strokeStyle = color
         ctx.beginPath()
         ctx.moveTo(x1, y1)
         ctx.lineTo(x2, y2)
@@ -92,16 +93,16 @@ var heartSpacing, weekSpacing
 function drawAxes() {
     heartSpacing = ((canvas.height - (origin[1] * 2)) / maxHearts)
     // Draw y-axis
-    draw.line(origin[0], 0, origin[0], canvas.height, 1)
+    draw.line(origin[0], 0, origin[0], canvas.height, 1, "#000000")
     for (let i = 0; i < maxHearts; i++) { // Heart (250 pt) dashes
         let level = heartSpacing * (i + 1) + origin[0]
         level = Math.round(level)
-        draw.line(origin[0] - 12, level, origin[0] + 12, level, 1)
+        draw.line(origin[0] - 12, level, origin[0] + 12, level, 1, "#000000")
         if (maxHearts <= 10) { // 50 pt dashes
             for (let d = 1; d < 5; d++) {
                 let subLevel = level - ((heartSpacing / 5) * d)
                 subLevel = Math.round(subLevel)
-                draw.line(origin[0] - 3, subLevel, origin[0] + 3, subLevel, 1)
+                draw.line(origin[0] - 3, subLevel, origin[0] + 3, subLevel, 1, "#000000")
             }
         }
         draw.heart(origin[0] + 1, level - 1, 2)
@@ -109,19 +110,19 @@ function drawAxes() {
 
     weekSpacing = ((canvas.width - (origin[0] * 2)) / maxWeeks)
     // Draw x-axis
-    draw.line(0, origin[1], canvas.width, origin[1], 1)
+    draw.line(0, origin[1], canvas.width, origin[1], 1, "#000000")
     for (let i = 0; i < maxWeeks; i++) { // Weeks dashes
         let level = weekSpacing * (i + 1) + origin[1]
         level = Math.round(level)
         // TODO only draw week dashes when maxWeeks is beneath a certain number, add year dashes
         // if i % 4 draw year
         // else if weeks beneath certain number
-        draw.line(level, origin[1] - 10, level, origin[1] + 10, 1)
+        draw.line(level, origin[1] - 10, level, origin[1] + 10, 1, "#000000")
         if (maxWeeks <= 12) { // Days dashes
             for (let d = 1; d < 7; d++) {
                 let dayLevel = level - ((weekSpacing / 7) * d)
                 dayLevel = Math.round(dayLevel)
-                draw.line(dayLevel, origin[1] - 3, dayLevel, origin[1] + 3, 1)
+                draw.line(dayLevel, origin[1] - 3, dayLevel, origin[1] + 3, 1, "#000000")
             }
         }
     }

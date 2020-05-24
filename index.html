@@ -164,7 +164,7 @@
                 <div class="box full">
                     <p>You can give gifts to villagers to increase or decrease friendship, how much so is determined by the gift type and the quality of the gift. The quality of the gift only affects liked and loved gifts, while neutral, disliked, and hated gifts are just their gift worth. Gifts can be given to villagers once per day and up to two gifts per week. Additionally, if maximum gifts were given in one week, then the friendship will receive a bonus of <mark>+10</mark> points at the end of the week. Each villager has their own set of loved, liked, neutral, disliked, and hated gifts, which the wiki lists out for each.</p>
                 </div>
-                <div class="box halfR">
+                <div class="box halfL">
                     <table>
                         <tr>
                             <th>Gift Type</th>
@@ -187,7 +187,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="box halfL">
+                <div class="box halfR">
                     <table>
                         <tr>
                             <th>Quality</th>
@@ -240,27 +240,26 @@
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
                         <p>Relationship type:  
-                            <select>
-                                <option>Not romanceable</option>
-                                <option>Romanceable, no bouquet</option>
-                                <option>Romanceable, give bouquet</option>
-                                <option>Romanceable, marry</option>
+                            <select id="relationshipSelect">
+                                <option value='0'>Not romanceable</option>
+                                <option value='1'>Romanceable, no bouquet</option>
+                                <option value='2'>Romanceable, give bouquet</option>
+                                <option value='3'>Romanceable, marry</option>
                             </select> </p>
-                        <!-- TODO: romanceable should be a piecewise function, because decay changes only when you reach max hearts -->
                     </div>
                     <!-- Talking -->
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
                         <p>Talk 
                             <select id="talkSelect">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
+                                <option value='0'>0</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5' selected>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
                             </select> 
                         times per week</p>
                     </div>
@@ -268,16 +267,16 @@
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
                         <p>Give 
-                            <select>
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                            </select> <select>
+                            <select id="giftNumSelect">
+                                <option value='0'>0</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                            </select> <select id="weeklyGiftQualitySelect">
                                 <option>normal</option>
                                 <option>silver</option>
                                 <option>gold</option>
                                 <option>iridium</option>
-                            </select> quality <select>
+                            </select> quality <select id="weeklyGiftTypeSelect">
                                 <option>loved</option>
                                 <option>liked</option>
                                 <option>neutral</option>
@@ -289,14 +288,14 @@
                     <!-- Birthday Checkbox -->
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <input type="checkbox">
+                        <input type="checkbox" id="birthdayCheckbox">
                         <label>Give a 
-                            <select>
+                            <select id="birthdayQualitySelect">
                                 <option>normal</option>
                                 <option>silver</option>
                                 <option>gold</option>
                                 <option>iridium</option>
-                            </select> quality <select>
+                            </select> quality <select id="birthdayTypeSelect">
                                 <option>loved</option>
                                 <option>liked</option>
                                 <option>neutral</option>
@@ -308,14 +307,14 @@
                     <!-- Winter Star Checkbox -->
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <input type="checkbox">
+                        <input type="checkbox" id="winterCheckbox">
                         <label>Give a 
-                            <select>
+                            <select id="winterQualitySelect">
                                 <option>normal</option>
                                 <option>silver</option>
                                 <option>gold</option>
                                 <option>iridium</option>
-                            </select> quality <select>
+                            </select> quality <select id="winterTypeSelect">
                                 <option>loved</option>
                                 <option>liked</option>
                                 <option>neutral</option>
@@ -352,14 +351,10 @@
                                 <th>Time (Days)</th>
                                 <th>Points</th>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>4</td>
-                            </tr>
                         </table>
                     </div>
                     
-                    <button id="sendToDesmosBtn">Send Points To Desmos</button>
+                    <button id="sendToDesmosBtn">Send Data To Desmos</button>
 
                     <!-- Todo: Add a button at the bottom that funnels all the points into the desmos section, so points can be compared with equation(s) -->
                 </div>

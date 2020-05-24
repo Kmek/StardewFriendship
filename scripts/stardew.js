@@ -42,6 +42,8 @@ function calcGift(quality, type) {
 }
 
 /******************** Graph Class ********************/
+var mainGraph
+
 class Graph {
     constructor(relationship, talkNum, giftNum, giftPoints, birthdayBool, birthdayPoints, winterBool, winterPoints) {
         this.relationship = relationship
@@ -118,8 +120,8 @@ class Graph {
                 curPoints += 10
             }
 
-            // If function doesn't have a positive trend, prevent infinity loop
-            if (day == 14 && curPoints <= 0) {
+            // If function doesn't have a positive trend, prevent infinity loop, or if relationship 3 is selected
+            if ((day == 14 && curPoints <= 0) || this.relationship == 3) {
                 // Empty points array, marks as ungraphable, and leave loop
                 this.points = []
                 this.graphable = false
@@ -163,6 +165,7 @@ class Graph {
 function drawGraph(g) {
     if (!g.getGraphable()) {
         // Display "not graphable" text?
+        console.log("not graphable")
         return
     }
 
@@ -174,11 +177,11 @@ function drawGraph(g) {
 
     emptyPointsTable()
 
-    for (let i = 0; i < test.points.length; i++) {
+    for (let i = 0; i < g.points.length; i++) {
         draw.circle(
             Math.round(origin[0] + ((weekSpacing / 7) * (i))),
             (origin[1] + (heartSpacing / 250) * g.points[i]),
-            0.5, "#ffffff")
+            1, "#ffffff")
         
         // Also fill the points table
         addPointsRow(i, g.points[i])
@@ -187,11 +190,6 @@ function drawGraph(g) {
 
     // todo: display max weeks (or days) below canvas, convert to years ( maybe with seasons?)
 }
-
-// For testing
-var test = new Graph(1, 7, 0, calcGift("normal", "liked"), false, calcGift("normal", "loved"), false, calcGift("normal", "liked"))
-test.calcPoints()
-drawGraph(test)
 
 /******************** Draw Equation on Desmos ********************/
 // Setup Desmos
