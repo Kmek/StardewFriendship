@@ -30,5 +30,5 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [ ] Extrema
 - [ ] Concavity
 - [ ] Inflection points
-- [ ] X-intercept
-- [ ] Y-intercept
+- [x] X-intercept
+- [x] Y-intercept
