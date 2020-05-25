@@ -1,6 +1,8 @@
 # StardewFriendship
 A website for understanding the friendship mechanics in Stardew Valley
 
+The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for exact numbers
+
 ### Brainstorm:
 - Some measurement ideas:
    - How long it takes to max out friendship
@@ -21,4 +23,12 @@ A website for understanding the friendship mechanics in Stardew Valley
       - Decay eventually stops, unless married
       - Friendship doesn't decrease below 0
    - Each heart is worth 250 points
-- Use the [wiki](https://stardewvalleywiki.com/Friendship) for exact numbers
+
+### Calculus Todos: 
+- [x] Equation, second and third deriv
+- [ ] Critical values
+- [ ] Extrema
+- [ ] Concavity
+- [ ] Inflection points
+- [ ] X-intercept
+- [ ] Y-intercept
