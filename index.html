@@ -323,24 +323,27 @@
                             </select> 
                         Winter Star gift</label>
                     </div>
+                    <!-- Days Timeout -->
+                    <div class="timeline">
+                        <div class="timelineDot"><div></div></div>
+                        <p>Timeout after 
+                            <input id="daysTimeoutInput" type="number" min="1" step="1" value="560" max="1000"> 
+                         days</p>
+                    </div>
                     <!-- TODO: add checkbox for plain background -->
                     <button id="graphBtn">Graph</button>
                 </div>
-                <!-- TODO: Maybe a given equation for the graph, even if it's just a trend line -->
-                <!-- <div class="box full">
-                    <p>Equation: </p>
-                </div> -->
                 <div class="blurTitle">
                     <canvas id="myCanvas" width="690px" height="500px">Canvas for models</canvas>
                 </div>
                 <!-- TODO:
                     -Use PrismJS to show the actual code
                     -Have a flowchart with a transparent background to explain the actual code algorithm
-                    -Show an actual equation too, because calculus
                     -Explain the derivative 
                 -->
 
                 <div class="box full">
+                    <p id="graphTextOutput">No Graph Data</p>
                     <button id="showTableBtn">Show Points</button>
                     <div id="pointsDiv">
                         <table id="pointsTable">
@@ -363,7 +366,7 @@
                     </div>
                 </div>
                 <div class="box full">
-                    <p>I decided to pick a situation to model for this project after viewing several different graphs using the algorithm I created. I am modelling <mark>talking</mark> to a <mark>non-romanceable</mark> villager once a day for the first <mark>5</mark> days in each week. The goal is to get the villager up to <mark>10</mark> hearts (or <mark>2500</mark> points), so the friendship doesn't decay anymore. According to my calculations, this would take <mark>204</mark> in-game days, or <mark>1</mark> year and <mark>3.28</mark> seasons.</p>
+                    <p>I decided to pick a situation to model for this project after viewing several different graphs using the algorithm I created. I am modelling <mark>talking</mark> to a <mark>non-romanceable</mark> villager once a day for the first <mark>5</mark> days in each week. The goal is to get the villager up to <mark>10</mark> hearts (or <mark>2500</mark> points), so the friendship doesn't decay anymore. According to my calculations, this would take <mark>204</mark> in-game days, or <mark>1</mark> year and <mark>3.286</mark> seasons.</p>
                 </div>
                 <div class="box full">
                     <button id="pointsEquationBtn">Show <mark>p(x)</mark> equation</button>

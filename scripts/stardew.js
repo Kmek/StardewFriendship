@@ -45,7 +45,7 @@ function calcGift(quality, type) {
 var mainGraph
 
 class Graph {
-    constructor(relationship, talkNum, giftNum, giftPoints, birthdayBool, birthdayPoints, winterBool, winterPoints) {
+    constructor(relationship, talkNum, giftNum, giftPoints, birthdayBool, birthdayPoints, winterBool, winterPoints, timeout) {
         this.relationship = relationship
         this.talkNum = talkNum
         this.giftNum = giftNum
@@ -54,9 +54,13 @@ class Graph {
         this.birthdayPoints = birthdayPoints
         this.winterBool = winterBool
         this.winterPoints = winterPoints
+        this.timeout = timeout
         this.graphable = true
+        this.reachedHeart8 = false
+        this.reachedHeart10 = false
         this.maxW = 0
         this.maxH = 0
+        this.day = 0
     }
 
     points = []
@@ -78,19 +82,22 @@ class Graph {
         }
     }
 
-    getCurrentDecay(curPoints) {
-        if (this.relationship == 0 || curPoints <= (250 * 8)) // Not romanceable and Romanceable, pre-bouquet
+    getCurrentDecay() {
+        if (this.relationship == 0 // Not romanceable
+            || !this.reachedHeart8) { // Romanceable, pre-bouquet
             return -2
-        else if (curPoints <= (250 * 10)) // Romanceable, post-bouquet
+        } else if (!this.reachedHeart10) { // Romanceable, post-bouquet
             return -10
-        else // Romanceable, married
+        } else // Romanceable, married
             return -20
     }
 
     calcPoints() {
         this.setMaxHearts() // Points goal
-        let day = 0
+        this.day = 0
         let curPoints = 0
+        this.reachedHeart8 = false
+        this.reachedHeart10 = false
         
         // Birthday and Winter Star gifts act as y-intercepts
         if (this.birthdayBool)
@@ -102,41 +109,41 @@ class Graph {
 
         do {
             // Decay
-            curPoints += this.getCurrentDecay(curPoints)
+            curPoints += this.getCurrentDecay()
+            if (!this.reachedHeart8 && this.relationship != 0 && curPoints >= (250 * 8)) 
+                this.reachedHeart8 = true
+            else if (!this.reachedHeart10 && this.relationship > 1 && curPoints >= (250 * 10))
+                this.reachedHeart10 = true
 
             // Talking
-            if (((day % 7) + 1) <= this.talkNum) {
+            if (((this.day % 7) + 1) <= this.talkNum) {
                 curPoints += 20
             }
 
             // Gifting
-            if (((day % 7) + 1) <= this.giftNum) {
-                console.log("giving gift on day " + day)
+            if (((this.day % 7) + 1) <= this.giftNum) {
                 curPoints += this.giftPoints
             }
             // +10 points if two gifts are given (awarded at the end of the week)
-            if (this.giftNum == 2 && (day % 7) == 0 && day != 0) {
-                console.log("collecting double points on day " + day)
+            if (this.giftNum == 2 && (this.day % 7) == 0 && this.day != 0) {
                 curPoints += 10
             }
 
             // If function doesn't have a positive trend, prevent infinity loop, or if relationship 3 is selected
-            if ((day == 14 && curPoints <= 0) || this.relationship == 3) {
+            if (this.day == this.timeout) {
                 // Empty points array, marks as ungraphable, and leave loop
-                this.points = []
+                console.log("Graph.calcPoints() timed out...")
                 this.graphable = false
                 break
             }
 
             this.points.push(curPoints)
-            day++
+            this.day++
 
         } while(curPoints <= (250 * this.maxH))
 
-        // Calc maxW from days, unless ungraphable
-        if (this.graphable) {
-            this.maxW = Math.ceil((day + 1) / 7)
-        }
+        // Calc maxW from days
+        this.maxW = Math.ceil((this.day + 1) / 7)
     }
 
     getGraphable() {
@@ -147,11 +154,7 @@ class Graph {
     }
 
     getMaxWeeks() {
-        if (this.graphable) {
-            return this.maxW
-        } else {
-            return 2
-        }
+        return this.maxW
     }
 }
 
@@ -159,8 +162,16 @@ class Graph {
 function drawGraph(g) {
     if (!g.getGraphable()) {
         // Display "not graphable" text?
-        console.log("not graphable")
-        return
+        graphOutput(("Timed out on day <mark>" + g.day + "</mark>"))
+    } else {
+        // Display max days below canvas, convert to years and seasons
+        let t = ("Would reach max hearts in <mark>" + g.day + "</mark> days. ")
+        let y = Math.floor(g.day / 112)
+        let s = ((g.day % 112) / 28).toFixed(3)
+        if (y > 0 || s > 0) 
+            t += "This is equal to <mark>" + y + "</mark> years and <mark>" + s + "</mark> seasons in-game."
+
+        graphOutput(t)
     }
 
     // Setup Graph Axes
@@ -172,17 +183,15 @@ function drawGraph(g) {
     emptyPointsTable()
 
     for (let i = 0; i < g.points.length; i++) {
-        draw.circle(
-            Math.round(origin[0] + ((weekSpacing / 7) * (i))),
-            (origin[1] + (heartSpacing / 250) * g.points[i]),
-            1, "#ffffff")
+        if (g.graphable)
+            draw.circle(
+                Math.round(origin[0] + ((weekSpacing / 7) * (i))),
+                (origin[1] + (heartSpacing / 250) * g.points[i]),
+                1, "#ffffff")
         
         // Also fill the points table
         addPointsRow(i, g.points[i])
-
     }
-
-    // todo: display max weeks (or days) below canvas, convert to years ( maybe with seasons?)
 }
 
 /******************** Draw Equation on Desmos ********************/
@@ -215,8 +224,6 @@ function setMathBoundsDesmos() {
 document.getElementById("sendToDesmosBtn").onclick = function() {
     // Check if it is graphable before sending data to desmos
     graphBtn.click()
-    if (!mainGraph.graphable)
-        return
 
     setMathBoundsDesmos()
 

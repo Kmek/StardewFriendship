@@ -36,11 +36,24 @@ graphBtn.onclick = function() {
         document.getElementById("winterCheckbox").checked, 
         calcGift(
             document.getElementById("winterQualitySelect").value, document.getElementById("winterTypeSelect").value),
+        document.getElementById("daysTimeoutInput").value
     )
     
     mainGraph.calcPoints()
     drawGraph(mainGraph)
 }
+
+// Force positive whole numbers by rounding the absolute value
+document.getElementById("daysTimeoutInput").onchange = function() {
+    this.value = Math.abs(Math.round(this.value))
+}
+
+/******************** Display Text from Graph ********************/
+var graphTextOutput = document.getElementById("graphTextOutput")
+
+function graphOutput(text) {
+    graphTextOutput.innerHTML = text
+} 
 
 /******************** Show Table Button ********************/
 var showTableBtn = document.getElementById("showTableBtn")
