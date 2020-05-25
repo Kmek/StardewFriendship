@@ -201,15 +201,24 @@ calculator.setMathBounds({
     top: 2500
 })
 
-// Todo: check if is graphable before sending data to desmos
-document.getElementById("sendToDesmosBtn").onclick = function() {
-    // Set new bounds
+// Update new math bounds function
+function setMathBoundsDesmos() {
     calculator.setMathBounds({
         left: 0,
         right: (maxWeeks * 8),
         bottom: 0,
         top: (maxHearts * 270)
     })
+}
+
+// Send model data to desmos
+document.getElementById("sendToDesmosBtn").onclick = function() {
+    // Check if it is graphable before sending data to desmos
+    graphBtn.click()
+    if (!mainGraph.graphable)
+        return
+
+    setMathBoundsDesmos()
 
     // Set points
     calculator.setExpression({
@@ -225,7 +234,28 @@ document.getElementById("sendToDesmosBtn").onclick = function() {
             values: (mainGraph.points)
         }]
     })
+}
+
+// Send points equation to desmos
+document.getElementById("pointsEquationBtn").onclick = function() {
+    setMathBoundsDesmos()
 
     // Set equation
     calculator.setExpression({ id: 'graph1', latex: "p(x)=18*\\sin((x-2.5)*((2*\\pi)/7))+12.285x+15", color: Desmos.Colors.ORANGE })
+}
+
+// Send points rate of change equation to desmos
+document.getElementById("rateEquationBtn").onclick = function() {
+    setMathBoundsDesmos()
+
+    // Set equation
+    calculator.setExpression({ id: 'graph2', latex: "r(x)=((36\\pi)/7)*\\cos((x-2.5)*((2\\pi)/7))+12.285", color: Desmos.Colors.PURPLE })
+}
+
+// Send acceleration equation to desmos
+document.getElementById("accelEquationBtn").onclick = function() {
+    setMathBoundsDesmos()
+
+    // Set equation
+    calculator.setExpression({ id: 'graph3', latex: "a(x)=((-72\\pi^2)/49)*\\sin((x-2.5)*((2\\pi)/7))", color: Desmos.Colors.RED })
 }

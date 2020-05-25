@@ -365,16 +365,13 @@
                 <div class="box full">
                     <p>I decided to pick a situation to model for this project after viewing several different graphs using the algorithm I created. I am modelling <mark>talking</mark> to a <mark>non-romanceable</mark> villager once a day for the first <mark>5</mark> days in each week. The goal is to get the villager up to <mark>10</mark> hearts (or <mark>2500</mark> points), so the friendship doesn't decay anymore. According to my calculations, this would take <mark>204</mark> in-game days, or <mark>1</mark> year and <mark>3.28</mark> seasons.</p>
                 </div>
-
-                <!----------------- Equation ----------------->
-                <div class="blurTitle full">
-                    <div class="border">
-                        <h2>Equation</h2>
-                    </div>
-                </div>
                 <div class="box full">
-                    <h2><mark>p(x) = 18 * sin((x - 2.5) * (2pi / 7)) + 12.285x + 15</mark></h2>
+                    <button id="pointsEquationBtn">Show <mark>p(x)</mark> equation</button>
+                    <button id="rateEquationBtn">Show <mark>r(x)</mark> equation</button>
+                    <button id="accelEquationBtn">Show <mark>a(x)</mark> equation</button>
                 </div>
+
+                <!----------------- Equations ----------------->
                 <div class="box full">
                     <p>After lots of adjusting, I reached this equation because:</p>
                     <div class="timeline">
@@ -384,7 +381,7 @@
                     </div>
                     <div class="timeline">
                         <div class="timelineDot"><div></div></div>
-                        <p><mark>* (2pi / 7)</mark></p>
+                        <p><mark>* (2<span class="pi"></span> / 7)</mark></p>
                         <p>Knew the period needed to be a week, so 7 days</p>
                     </div>
                     <div class="timeline">
@@ -408,11 +405,34 @@
                         <p>Knew <mark>sin(x)</mark> needed a multiplier <mark>a</mark> value</p>
                     </div>
                 </div>
+                <div class="blurTitle full">
+                    <div class="border">
+                        <h3>Points Equation: <mark>p(x)</mark></h3>
+                    </div>
+                </div>
+                <div class="box full">
+                    <h2><mark>p(x) = 18 * sin((x - 2.5) * (2<span class="pi"></span> / 7)) + 12.285x + 15</mark></h2>
+                </div>
+                <div class="blurTitle full">
+                    <div class="border">
+                        <h3>Points Rate of Change Equation: <mark>r(x)</mark></h3>
+                    </div>
+                </div>
+                <div class="box full">
+                    <h2><mark>r(x) = (36<span class="pi"></span> / 7) * cos((x - 2.5) * (2<span class="pi"></span> / 7)) + 12.285 </mark></h2>
+                </div>
+                <div class="blurTitle full">
+                    <div class="border">
+                        <h3>Points Acceleration Equation: <mark>a(x)</mark></h3>
+                    </div>
+                </div>
+                <div class="box full">
+                    <h2><mark>a(x) = (-72<span class="pi"></span><sup>2</sup> / 49) * sin((x - 2.5) * (2<span class="pi"></span> / 7))</mark></h2>
+                </div>
 
-                <!-- 
-                    -knew sin(x) needed a multiplier "a", eyeballed
-                -->
-                
+
+
+
             </div>
         </div>
 	</div>

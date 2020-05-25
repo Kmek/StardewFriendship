@@ -33,9 +33,10 @@
 }
 
 /********** For StardewFriendship **********/
-#graphBtn, #showTableBtn, #sendToDesmosBtn {
+#graphBtn, #showTableBtn, #sendToDesmosBtn, #pointsEquationBtn, #rateEquationBtn, #accelEquationBtn {
     height: 50px;
     width: calc(100% - 50px);
+    margin-left: 25px;
     font-size: 16px;
     border: 3px solid var(--accent);
 
@@ -44,24 +45,36 @@
     background-size: 200% 100%;
     background-position: right bottom;
 }
-#graphBtn:hover, #showTableBtn:hover, #sendToDesmosBtn:hover {
+#graphBtn:hover, #showTableBtn:hover, #sendToDesmosBtn:hover, #pointsEquationBtn:hover, #rateEquationBtn:hover, #accelEquationBtn:hover {
     background-position: left bottom;
 }
 #graphBtn {
-    margin-left: 25px;
     margin-bottom: 10px;
     border-radius: 0 40px 5px 40px;
 }
 #showTableBtn {
     margin-top: 10px;
-    margin-left: 25px;
     margin-bottom: 5px;
     border-radius: 40px 40px 5px 5px;
 }
 #sendToDesmosBtn {
     margin-top: 5px;
-    margin-left: 25px;
     margin-bottom: 10px;
+    border-radius: 5px 5px 40px 40px;
+}
+#pointsEquationBtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 40px 40px 5px 5px;
+}
+#rateEquationBtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+#accelEquationBtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 5px 5px 40px 40px;
 }
 
@@ -79,6 +92,13 @@
 #pointsDiv table td {
     font-size: 12px;
     padding: 3px;
+}
+
+.pi {
+    font-family: 'Times New Roman';
+}
+.pi:before {
+    content: "\03C0";
 }
 
 #calculator {
