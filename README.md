@@ -29,7 +29,7 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [x] Critical values
 - [x] Extrema
 - [ ] Concavity
-- [ ] Inflection points
+- [x] Inflection points
 - [x] X-intercept
 - [x] Y-intercept
 
