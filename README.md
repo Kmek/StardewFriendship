@@ -27,8 +27,14 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 ### Calculus Todos: 
 - [x] Equation, second and third deriv
 - [ ] Critical values
-- [ ] Extrema
+- [x] Extrema
 - [ ] Concavity
 - [ ] Inflection points
 - [x] X-intercept
 - [x] Y-intercept
+
+### Other Todos:
+- [ ] Recenter desmos graph closer for `r(x)` and `a(x)` (pass parameters to `setMathBoundsDesmos()`)
+- [ ] Don't forget to either fill in or remove the `PrismJS` codeblock in the `Models` section
+- [ ] Move graph output `<p>` up to below graph button
+- [ ] Move 3 show equation buttons `<div>` above the "chosen situation" `<div>`
