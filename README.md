@@ -28,7 +28,7 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [x] Equation, second and third deriv
 - [x] Critical values
 - [x] Extrema
-- [ ] Concavity
+- [x] Concavity
 - [x] Inflection points
 - [x] X-intercept
 - [x] Y-intercept
