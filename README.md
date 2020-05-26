@@ -26,7 +26,7 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 
 ### Calculus Todos: 
 - [x] Equation, second and third deriv
-- [ ] Critical values
+- [x] Critical values
 - [x] Extrema
 - [ ] Concavity
 - [ ] Inflection points
@@ -38,3 +38,4 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [ ] Don't forget to either fill in or remove the `PrismJS` codeblock in the `Models` section
 - [ ] Move graph output `<p>` up to below graph button
 - [ ] Move 3 show equation buttons `<div>` above the "chosen situation" `<div>`
+- [ ] Move the "Inflection Points" section above the "Concavity" section
