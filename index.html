@@ -332,6 +332,7 @@
                     </div>
                     <!-- TODO: add checkbox for plain background -->
                     <button id="graphBtn">Graph</button>
+                    <p id="graphTextOutput">No Graph Data</p>
                 </div>
                 <div class="blurTitle">
                     <canvas id="myCanvas" width="690px" height="500px">Canvas for models</canvas>
@@ -343,7 +344,6 @@
                 -->
 
                 <div class="box full">
-                    <p id="graphTextOutput">No Graph Data</p>
                     <button id="showTableBtn">Show Points</button>
                     <div id="pointsDiv">
                         <table id="pointsTable">
@@ -357,7 +357,14 @@
                     <button id="sendToDesmosBtn">Send Data To Desmos</button>
                 </div>
 
+                <!----------------- Desmos Div ----------------->
                 <div id="calculator" style="width: 700px; height: 500px;"></div>
+
+                <div class="box full">
+                    <button id="pointsEquationBtn">Show <mark>p(x)</mark> equation</button>
+                    <button id="rateEquationBtn">Show <mark>r(x)</mark> equation</button>
+                    <button id="accelEquationBtn">Show <mark>a(x)</mark> equation</button>
+                </div>
 
                 <!----------------- Chosen Situation ----------------->
                 <div class="blurTitle full">
@@ -367,11 +374,6 @@
                 </div>
                 <div class="box full">
                     <p>I decided to pick a situation to model for this project after viewing several different graphs using the algorithm I created. I am modelling <mark>talking</mark> to a <mark>non-romanceable</mark> villager once a day for the first <mark>5</mark> days in each week. The goal is to get the villager up to <mark>10</mark> hearts (or <mark>2500</mark> points), so the friendship doesn't decay anymore. According to my calculations, this would take <mark>204</mark> in-game days, or <mark>1</mark> year and <mark>3.286</mark> seasons.</p>
-                </div>
-                <div class="box full">
-                    <button id="pointsEquationBtn">Show <mark>p(x)</mark> equation</button>
-                    <button id="rateEquationBtn">Show <mark>r(x)</mark> equation</button>
-                    <button id="accelEquationBtn">Show <mark>a(x)</mark> equation</button>
                 </div>
 
                 <!----------------- Equations ----------------->
@@ -450,16 +452,16 @@
                 <div class="box full">
                     <p>On the interval <mark>[0, 7]</mark> the relative maximum is <mark>(5.212, 90.726)</mark>. This maximum corresponds to the <mark>5th</mark> day in the week, which represents the last day in the given week that the player <mark>talks</mark> to the villager. The relative minimums are <mark>(6.788, 86.694)</mark> and <mark>(0, 0.927)</mark>. These minimums both represent the <mark>7th</mark> day of the week, which is the last day in the given week that the friendship is decaying from the player <mark>not talking</mark> to the villager. </p>
                 </div>
-                <!----------------- Concavity ----------------->
-                <div class="blurTitle full">
-                    <div class="border">
-                        <h3>Concavity</h3>
-                    </div>
-                </div>
                 <!----------------- Inflection Points ----------------->
                 <div class="blurTitle full">
                     <div class="border">
                         <h3>Inflection Points</h3>
+                    </div>
+                </div>
+                <!----------------- Concavity ----------------->
+                <div class="blurTitle full">
+                    <div class="border">
+                        <h3>Concavity</h3>
                     </div>
                 </div>
                 <!----------------- Intercepts ----------------->
