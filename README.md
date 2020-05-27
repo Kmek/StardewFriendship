@@ -33,8 +33,8 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [x] X-intercept
 - [x] Y-intercept
 - [ ] Integral of `p(x)`, explain what would change
-- [ ] Explain each of the equations & derivatives
-- [ ] Explain the intercepts
+- [x] Explain each of the equations & derivatives
+- [x] Explain the intercepts
 
 ### Other Todos:
 - [ ] Recenter desmos graph closer for `r(x)` and `a(x)` (pass parameters to `setMathBoundsDesmos()`)
