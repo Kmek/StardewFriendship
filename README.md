@@ -32,9 +32,10 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [x] Inflection points
 - [x] X-intercept
 - [x] Y-intercept
-- [ ] Integral of `p(x)`, explain what would change
+- [x] Integral of `p(x)`, explain that it doesn't mean anything
 - [x] Explain each of the equations & derivatives
 - [x] Explain the intercepts
+- [ ] Change one thing (linear growth num), explain what would change
 
 ### Other Todos:
 - [ ] Recenter desmos graph closer for `r(x)` and `a(x)` (pass parameters to `setMathBoundsDesmos()`)
@@ -42,3 +43,4 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [x] Move graph output `<p>` up to below graph button
 - [x] Move 3 show equation buttons `<div>` above the "chosen situation" `<div>`
 - [x] Move the "Inflection Points" section above the "Concavity" section
+- [ ] Don't allow points to go negative (this means even a timed out model can be drawn!)
