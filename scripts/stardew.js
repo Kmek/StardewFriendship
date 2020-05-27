@@ -266,3 +266,11 @@ document.getElementById("accelEquationBtn").onclick = function() {
     // Set equation
     calculator.setExpression({ id: 'graph3', latex: "a(x)=((-72\\pi^2)/49)*\\sin((x-2.5)*((2\\pi)/7))", color: Desmos.Colors.RED })
 }
+
+// Send changed parameter equation to desmos
+document.getElementById("viewChangedParamBtn").onclick = function() {
+    setMathBoundsDesmos()
+
+    // Set equation
+    calculator.setExpression({ id: 'graph4', latex: "p(x)=18*\\sin((x-2.5)*((2*\\pi)/7))+20x+15", color: Desmos.Colors.BLUE })
+}

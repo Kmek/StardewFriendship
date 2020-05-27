@@ -35,7 +35,7 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [x] Integral of `p(x)`, explain that it doesn't mean anything
 - [x] Explain each of the equations & derivatives
 - [x] Explain the intercepts
-- [ ] Change one thing (linear growth num), explain what would change
+- [x] Change one thing (linear growth num), explain what would change
 
 ### Other Todos:
 - [ ] Recenter desmos graph closer for `r(x)` and `a(x)` (pass parameters to `setMathBoundsDesmos()`)
