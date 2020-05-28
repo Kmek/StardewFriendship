@@ -38,9 +38,9 @@ The Stardew Valley [wiki](https://stardewvalleywiki.com/Friendship) was used for
 - [x] Change one thing (linear growth num), explain what would change
 
 ### Other Todos:
-- [ ] Recenter desmos graph closer for `r(x)` and `a(x)` (pass parameters to `setMathBoundsDesmos()`)
+- [x] Recenter desmos graph closer for `r(x)` and `a(x)` (pass parameters to `setMathBoundsDesmos()`)
 - [x] Don't forget to either fill in or remove the `PrismJS` codeblock in the `Models` section
 - [x] Move graph output `<p>` up to below graph button
 - [x] Move 3 show equation buttons `<div>` above the "chosen situation" `<div>`
 - [x] Move the "Inflection Points" section above the "Concavity" section
-- [ ] Don't allow points to go negative (this means even a timed out model can be drawn!)
+- [x] Don't allow points to go negative (this means even a timed out model can be drawn!)

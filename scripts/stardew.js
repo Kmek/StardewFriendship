@@ -55,7 +55,7 @@ class Graph {
         this.winterBool = winterBool
         this.winterPoints = winterPoints
         this.timeout = timeout
-        this.graphable = true
+        this.graphable = true // This is really now just true if it didn't timeout
         this.reachedHeart8 = false
         this.reachedHeart10 = false
         this.maxW = 0
@@ -137,6 +137,11 @@ class Graph {
                 break
             }
 
+            // Check to make sure points doesn't go below 0
+            if (curPoints < 0)
+                curPoints = 0
+
+            // Add point and increment day
             this.points.push(curPoints)
             this.day++
 
@@ -183,11 +188,10 @@ function drawGraph(g) {
     emptyPointsTable()
 
     for (let i = 0; i < g.points.length; i++) {
-        if (g.graphable)
-            draw.circle(
-                Math.round(origin[0] + ((weekSpacing / 7) * (i))),
-                (origin[1] + (heartSpacing / 250) * g.points[i]),
-                1, "#ffffff")
+        draw.circle(
+            Math.round(origin[0] + ((weekSpacing / 7) * (i))),
+            (origin[1] + (heartSpacing / 250) * g.points[i]),
+            1, "#ffffff")
         
         // Also fill the points table
         addPointsRow(i, g.points[i])
@@ -200,8 +204,7 @@ var elt = document.getElementById('calculator')
 var calculator = Desmos.GraphingCalculator(elt)
 calculator.updateSettings({ 
     xAxisLabel: 'Time (Days)', 
-    yAxisLabel: 'Points',
-    
+    yAxisLabel: 'Points', 
 })
 calculator.setMathBounds({
     left: 0,
@@ -211,12 +214,12 @@ calculator.setMathBounds({
 })
 
 // Update new math bounds function
-function setMathBoundsDesmos() {
+function setMathBoundsDesmos(l, r, b, t) {
     calculator.setMathBounds({
-        left: 0,
-        right: (maxWeeks * 8),
-        bottom: 0,
-        top: (maxHearts * 270)
+        left: l,
+        right: r,
+        bottom: b,
+        top: t
     })
 }
 
@@ -225,7 +228,10 @@ document.getElementById("sendToDesmosBtn").onclick = function() {
     // Check if it is graphable before sending data to desmos
     graphBtn.click()
 
-    setMathBoundsDesmos()
+    setMathBoundsDesmos(0, (maxWeeks * 8), 0, (maxHearts * 270))
+    calculator.updateSettings({ 
+        yAxisLabel: 'Points', 
+    })
 
     // Set points
     calculator.setExpression({
@@ -245,7 +251,10 @@ document.getElementById("sendToDesmosBtn").onclick = function() {
 
 // Send points equation to desmos
 document.getElementById("pointsEquationBtn").onclick = function() {
-    setMathBoundsDesmos()
+    setMathBoundsDesmos(0, (maxWeeks * 8), 0, (maxHearts * 270))
+    calculator.updateSettings({ 
+        yAxisLabel: 'Points', 
+    })
 
     // Set equation
     calculator.setExpression({ id: 'graph1', latex: "p(x)=18*\\sin((x-2.5)*((2*\\pi)/7))+12.285x+15", color: Desmos.Colors.ORANGE })
@@ -253,7 +262,10 @@ document.getElementById("pointsEquationBtn").onclick = function() {
 
 // Send points rate of change equation to desmos
 document.getElementById("rateEquationBtn").onclick = function() {
-    setMathBoundsDesmos()
+    setMathBoundsDesmos(-5, 20, -100, 200)
+    calculator.updateSettings({ 
+        yAxisLabel: 'Points / Day', 
+    })
 
     // Set equation
     calculator.setExpression({ id: 'graph2', latex: "r(x)=((36\\pi)/7)*\\cos((x-2.5)*((2\\pi)/7))+12.285", color: Desmos.Colors.PURPLE })
@@ -261,7 +273,10 @@ document.getElementById("rateEquationBtn").onclick = function() {
 
 // Send acceleration equation to desmos
 document.getElementById("accelEquationBtn").onclick = function() {
-    setMathBoundsDesmos()
+    setMathBoundsDesmos(-5, 20, -100, 200)
+    calculator.updateSettings({ 
+        yAxisLabel: 'Points / Day / Day', 
+    })
 
     // Set equation
     calculator.setExpression({ id: 'graph3', latex: "a(x)=((-72\\pi^2)/49)*\\sin((x-2.5)*((2\\pi)/7))", color: Desmos.Colors.RED })
@@ -269,8 +284,14 @@ document.getElementById("accelEquationBtn").onclick = function() {
 
 // Send changed parameter equation to desmos
 document.getElementById("viewChangedParamBtn").onclick = function() {
-    setMathBoundsDesmos()
+    setMathBoundsDesmos(0, (maxWeeks * 8), 0, (maxHearts * 270))
+    calculator.updateSettings({ 
+        yAxisLabel: 'Points', 
+    })
 
     // Set equation
     calculator.setExpression({ id: 'graph4', latex: "p(x)=18*\\sin((x-2.5)*((2*\\pi)/7))+20x+15", color: Desmos.Colors.BLUE })
+
+    // Scroll up to desmos div
+    document.getElementById("calculator").scrollIntoView()
 }
